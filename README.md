@@ -13,8 +13,32 @@ geodjango + leaflet
     git config --global --unset https.prox
 
 
-#### django库安装、配置
+#### 环境配置配置
 >配置项目所需库及注意事项
+
+虚拟环境配置
+
+    #安装虚拟环境创建库
+    pip install virtualenv
+    pip install virtualenvwrapper-win #linux 安装使用:pip install virtualenvwrapper
+- window配置：
+
+>1、打开控制面板-系统和安全-系统-高级系统设置-环境变量-系统变量-点击新建  
+2、变量名：输入 WORKON_HOME， 变量值：输入自定义的路径，确定保存即可。  
+3、进入pthon的安装路径，我这里是C:\Program Files\python36\Scripts下，具体根据自己的安装路径双击virtualenvwrapper.bat 。  
+4、然后重新打开cmd即可使用
+- LINUX 配置：
+> 编辑 shell 的 RC 文件（例如 .bashrc、.bash_profile 或 .zshrc）并添加以下几行：
+
+    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+    export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+    source /usr/local/bin/virtualenvwrapper.sh
+
+
+创建虚拟环境: mkvirtualenv [环境名称]  
+运行环境：    workon [环境名称]  
+退出环境： deactivate  
+删除环境：rmvirtualenv [环境名称]  
 
 - [rest_framework安装](https://www.django-rest-framework.org/)
 ```
