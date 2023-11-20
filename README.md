@@ -1,12 +1,24 @@
-# geoshare
+## version 0.0.1
+
+# 一、 geohares 基本功能
 geodjango + leaflet 
 
-### 0.0.1 version
-    1、add requrements.
+# 二、环境配置
+
+**git问题** ：Failed to connect to github.com port 443:connection timed out 。
+
+##### 解决办法：取消全局代理，如下：
+    
+    git config --global --unset http.proxy 
+    git config --global --unset https.prox
 
 
+#### django库安装、配置
+>配置项目所需库及注意事项
+
+- [rest_framework安装](https://www.django-rest-framework.org/)
 ```
-    pip install djangorestframework
+    pip install djangorestframework # restframework
     pip install markdown       
     pip install django-filter
 
