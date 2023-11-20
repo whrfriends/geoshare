@@ -67,3 +67,5 @@ REST_FRAMEWORK = {
 }
 ```
 
+
+[VSCode安装Django插件后实现html语法提示的两个方法及操作步骤](https://www.cainiaoxueyuan.com/office/28106.html)
