@@ -8,15 +8,14 @@ geodjango + leaflet
 ```
     pip install djangorestframework
     pip install markdown       
-    pip install django-filter 
-```
- 
+    pip install django-filter
 
 
 INSTALLED_APPS = [
     ...
     'rest_framework',
 ]
+
 
 urlpatterns = [
     ...
@@ -30,4 +29,5 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
-``
+```
+
