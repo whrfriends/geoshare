@@ -5,7 +5,7 @@ geodjango + leaflet
     1、add requrements.
 
 
-```
+``
 pip install djangorestframework
 pip install markdown       # Markdown support for the browsable API.
 pip install django-filter  # Filtering support
@@ -28,4 +28,4 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
-```
+``
