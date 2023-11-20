@@ -5,11 +5,13 @@ geodjango + leaflet
     1、add requrements.
 
 
-[```]
+```
     pip install djangorestframework
     pip install markdown       
-    pip install django-filter  
-[```]
+    pip install django-filter 
+```
+ 
+
 
 INSTALLED_APPS = [
     ...
