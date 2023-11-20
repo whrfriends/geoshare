@@ -1,6 +1,6 @@
 ## version 0.0.1
 
-# 一、 geohares 基本功能
+# 一、 geoshare 基本功能
 geodjango + leaflet 
 
 # 二、环境配置
