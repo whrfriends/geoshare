@@ -71,3 +71,15 @@ REST_FRAMEWORK = {
 [VSCode安装Django插件后实现html语法提示的两个方法及操作步骤](https://www.cainiaoxueyuan.com/office/28106.html)
 
 [bootstrap文档](https://v5.bootcss.com/docs/getting-started/introduction/)
+
+
+### 静态文件设置
+    #setting.py中添加
+    STATIC_URL = 'static/'
+    STATICFILES_DIRS = [
+    BASE_DIR / "static"]
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+    
+    #在urls.py中设置
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
