@@ -89,12 +89,4 @@ REST_FRAMEWORK = {
 
 ### [geodjango配置](https://www.pointsnorthgis.ca/blog/geodjango-gdal-setup-windows-10/)
 
-
-    pipwin install gdal
-
-
-
-    if os.name == 'nt':
-        VIRTUAL_ENV_BASE = os.environ['VIRTUAL_ENV']
-        os.environ['PATH'] = os.path.join(VIRTUAL_ENV_BASE, r'.\Lib\site-packages\osgeo') + ';' + os.environ['PATH']
-        os.environ['PROJ_LIB'] = os.path.join(VIRTUAL_ENV_BASE, r'.\Lib\site-packages\osgeo\data\proj') + ';' + os.environ['PATH']
+    参考官网配置即可

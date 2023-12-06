@@ -8,3 +8,4 @@ djangorestframework
 django-filter
 djangorestframework-gis
 django-leaflet
+python-dotenv

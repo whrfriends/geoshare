@@ -21,4 +21,6 @@ class BeiJiang(models.Model):
     墩号 = models.BigIntegerField(null=True)
     geom = models.MultiPointField(srid=4326)
 
-
+class BridageImage(models.Model):
+    name = models.CharField( max_length=50)
+    beijiang = models.ForeignKey(BeiJiang,on_delete=models.CASCADE)
