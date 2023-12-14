@@ -90,3 +90,52 @@ REST_FRAMEWORK = {
 ### [geodjango配置](https://www.pointsnorthgis.ca/blog/geodjango-gdal-setup-windows-10/)
 
     参考官网配置即可
+###Linux 平台配置gdal
+    sudo add-apt-repository ppa:ubuntugis/ppa 
+    sudo apt-get update
+    sudo apt-get install gdal-bin
+    sudo apt-get install libgdal-dev
+    export CPLUS_INCLUDE_PATH=/usr/include/gdal
+    export C_INCLUDE_PATH=/usr/include/gdal
+    gdal-config --version  #(get version)
+    pip install GDAL==version
+
+
+
+
+
+##[ubuntu平台发布Django 项目](https://www.codewithharry.com/blogpost/django-deploy-nginx-gunicorn/)
+Step 3 - Installing Django and gunicorn
+    pip install django gunicorn
+Step 5 - Configuring gunicorn
+    1、sudo vim /etc/systemd/system/gunicorn.socket
+        [Unit]
+        Description=gunicorn socket
+        
+        [Socket]
+        ListenStream=/run/gunicorn.sock
+        
+        [Install]
+        WantedBy=sockets.target
+
+   2、sudo vim /etc/systemd/system/gunicorn.service
+        [Unit]
+        Description=gunicorn daemon
+        Requires=gunicorn.socket
+        After=network.target
+        
+        [Service]
+        User=harry
+        Group=www-data
+        WorkingDirectory=/home/to/projectdir
+        ExecStart=/home/to/projectdir/env/bin/gunicorn \
+                  --access-logfile - \
+                  --workers 3 \
+                  --bind unix:/run/gunicorn.sock \
+                  【project名称】.wsgi:application
+        
+        [Install]
+        WantedBy=multi-user.target
+
+
+
