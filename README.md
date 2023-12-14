@@ -101,9 +101,6 @@ REST_FRAMEWORK = {
     pip install GDAL==version
 
 
-
-
-
 ##[ubuntu平台发布Django 项目](https://www.codewithharry.com/blogpost/django-deploy-nginx-gunicorn/)
 Step 3 - Installing Django and gunicorn
     pip install django gunicorn
@@ -136,6 +133,30 @@ Step 5 - Configuring gunicorn
         
         [Install]
         WantedBy=multi-user.target
+
+    3、启动项目
+        sudo systemctl start gunicorn.socket
+        sudo systemctl enable gunicorn.socket
+
+    4、sudo vim /etc/nginx/sites-available/【文件名】
+        server {
+            listen 80;
+            server_name www.codewithharry.in;
+        
+            location = /favicon.ico { access_log off; log_not_found off; }
+            location /static/ {
+                root /home/harry/projectdir;
+            }
+        
+            location / {
+                include proxy_params;
+                proxy_pass http://unix:/run/gunicorn.sock;
+            }
+        }
+        
+    5、sudo ln -s /etc/nginx/sites-available/【文件名】 /etc/nginx/sites-enabled/
+
+    6、sudo systemctl restart nginx
 
 
 
