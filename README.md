@@ -91,19 +91,19 @@ REST_FRAMEWORK = {
 
     参考官网配置即可
 ###Linux 平台配置gdal
-    sudo add-apt-repository ppa:ubuntugis/ppa 
-    sudo apt-get update
-    sudo apt-get install gdal-bin
-    sudo apt-get install libgdal-dev
-    export CPLUS_INCLUDE_PATH=/usr/include/gdal
-    export C_INCLUDE_PATH=/usr/include/gdal
-    gdal-config --version  #(get version)
-    pip install GDAL==version
+        sudo add-apt-repository ppa:ubuntugis/ppa 
+        sudo apt-get update
+        sudo apt-get install gdal-bin
+        sudo apt-get install libgdal-dev
+        export CPLUS_INCLUDE_PATH=/usr/include/gdal
+        export C_INCLUDE_PATH=/usr/include/gdal
+        gdal-config --version  #(get version)
+        pip install GDAL==version
 
 
 ##[ubuntu平台发布Django 项目](https://www.codewithharry.com/blogpost/django-deploy-nginx-gunicorn/)
 Step 3 - Installing Django and gunicorn
-    pip install django gunicorn
+        pip install django gunicorn
 Step 5 - Configuring gunicorn
     1、sudo vim /etc/systemd/system/gunicorn.socket
         [Unit]
@@ -116,44 +116,44 @@ Step 5 - Configuring gunicorn
         WantedBy=sockets.target
 
    2、sudo vim /etc/systemd/system/gunicorn.service
-        [Unit]
-        Description=gunicorn daemon
-        Requires=gunicorn.socket
-        After=network.target
-        
-        [Service]
-        User=harry
-        Group=www-data
-        WorkingDirectory=/home/to/projectdir
-        ExecStart=/home/to/projectdir/env/bin/gunicorn \
-                  --access-logfile - \
-                  --workers 3 \
-                  --bind unix:/run/gunicorn.sock \
-                  【project名称】.wsgi:application
-        
-        [Install]
-        WantedBy=multi-user.target
+            [Unit]
+            Description=gunicorn daemon
+            Requires=gunicorn.socket
+            After=network.target
+            
+            [Service]
+            User=harry
+            Group=www-data
+            WorkingDirectory=/home/to/projectdir
+            ExecStart=/home/to/projectdir/env/bin/gunicorn \
+                      --access-logfile - \
+                      --workers 3 \
+                      --bind unix:/run/gunicorn.sock \
+                      【project名称】.wsgi:application
+            
+            [Install]
+            WantedBy=multi-user.target
 
     3、启动项目
-        sudo systemctl start gunicorn.socket
-        sudo systemctl enable gunicorn.socket
+            sudo systemctl start gunicorn.socket
+            sudo systemctl enable gunicorn.socket
 
     4、sudo vim /etc/nginx/sites-available/【文件名】
-        server {
-            listen 80;
-            server_name www.codewithharry.in;
-        
-            location = /favicon.ico { access_log off; log_not_found off; }
-            location /static/ {
-                root /home/harry/projectdir;
+            server {
+                listen 80;
+                server_name www.codewithharry.in;
+            
+                location = /favicon.ico { access_log off; log_not_found off; }
+                location /static/ {
+                    root /home/harry/projectdir;
+                }
+            
+                location / {
+                    include proxy_params;
+                    proxy_pass http://unix:/run/gunicorn.sock;
+                }
             }
-        
-            location / {
-                include proxy_params;
-                proxy_pass http://unix:/run/gunicorn.sock;
-            }
-        }
-        
+            
     5、sudo ln -s /etc/nginx/sites-available/【文件名】 /etc/nginx/sites-enabled/
 
     6、sudo systemctl restart nginx
