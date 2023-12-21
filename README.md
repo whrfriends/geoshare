@@ -163,3 +163,8 @@ Step 5 - Configuring gunicorn
 CKEditor 是新一代的 FCKeditor，是一个重新开发的版本。CKEditor 是全球最优秀的网页在线文字编辑器之一，因其惊人的性能与可扩展性而广泛的被运用于各大网站。
 
 可配合使用的扩展有文件管理器 KCFinder。
+
+django-template-partials 配合HTMX使用
+
+form格式化django-widget-tweaks
+
