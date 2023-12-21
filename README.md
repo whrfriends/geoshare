@@ -164,7 +164,7 @@ CKEditor 是新一代的 FCKeditor，是一个重新开发的版本。CKEditor �
 
 可配合使用的扩展有文件管理器 KCFinder。
 
-django-template-partials 配合HTMX使用
+[django-template-partials](https://pypi.org/project/django-template-partials/) 配合HTMX使用
 
 form格式化django-widget-tweaks
 
